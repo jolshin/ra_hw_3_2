@@ -18,10 +18,7 @@ const Listing: React.FC<ListingProps> = ({ items = [] }) => {
     if (quantity <= 20) return "level-medium";
     return "level-high";
   };
-  console.log(items)
-  items.map((item) => (console.log(item)))
-  items.map((item) => (console.log(item.MainImage.url_570xN)))
-
+  
   return (
     <div className="item-list">
       {items.map((item) => (
