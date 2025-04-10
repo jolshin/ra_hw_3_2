@@ -18,19 +18,23 @@ const Listing: React.FC<ListingProps> = ({ items = [] }) => {
     if (quantity <= 20) return "level-medium";
     return "level-high";
   };
-  
+
   return (
     <div className="item-list">
       {items.map((item) => (
         <div className="item" key={item.listing_id}>
           <div className="item-image">
             <a href={item.url}>
-              <img src={item.MainImage.url_570xN} alt={item.title} />
+              {item.MainImage === undefined ? (
+                ""
+              ) : (
+                <img src={item.MainImage.url_570xN} alt={item.title} />
+              )}
             </a>
           </div>
           <div className="item-details">
             <p className="item-title">
-              {item.title.length > 50
+              {item.title !== undefined && item.title.length > 50
                 ? `${item.title.substring(0, 50)}…`
                 : item.title}
             </p>
